@@ -1,0 +1,69 @@
+#!/bin/bash
+
+set -ex
+
+# This shouldn't be in the Dockerfile or containers built from the same image
+# will have the same credentials.
+if [ ! -e "$HOME/.bitcoin1/bitcoin.conf" ]; then
+    mkdir -p $HOME/.bitcoin1
+    mkdir -p $HOME/.bitcoin2
+    mkdir -p $HOME/.bitcoin3
+    mkdir -p $HOME/.bitcoin4
+    
+    echo "Creating bitcoin.conf"
+
+    cat <<EOF > $HOME/.bitcoin1/bitcoin.conf
+regtest=1    
+disablewallet=0
+server=1
+rpcport=8332
+printtoconsole=${PRINTTOCONSOLE1:-1}
+rpcuser=${RPCUSER:-bitcoinrpc}
+rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
+EOF
+
+    cat <<EOF > $HOME/.bitcoin2/bitcoin.conf
+regtest=1
+listen=0
+disablewallet=0
+server=1
+rpcport=8334
+printtoconsole=1
+rpcuser=${RPCUSER:-bitcoinrpc}
+rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
+addnode=127.0.0.1:18444
+EOF
+
+    cat <<EOF > $HOME/.bitcoin3/bitcoin.conf
+regtest=1
+listen=0
+disablewallet=0
+server=1
+rpcport=8336
+printtoconsole=1
+rpcuser=${RPCUSER:-bitcoinrpc}
+rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
+addnode=127.0.0.1:18444
+EOF
+
+    cat <<EOF > $HOME/.bitcoin4/bitcoin.conf
+regtest=1
+listen=0
+disablewallet=0
+server=1
+rpcport=8338
+printtoconsole=1
+rpcuser=${RPCUSER:-bitcoinrpc}
+rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
+addnode=127.0.0.1:18444
+EOF
+
+fi
+
+mkdir -p $HOME/.bitcoin2/regtest
+mkdir -p $HOME/.bitcoin3/regtest
+
+cp -rf $HOME/wallet.dat $HOME/.bitcoin2/regtest
+cp -rf $HOME/wallet.dat $HOME/.bitcoin3/regtest
+
+echo "Initialization completed successfully"

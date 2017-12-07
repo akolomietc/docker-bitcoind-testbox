@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -ex
+
+# Generate bitcoin.conf
+btc_init
+
+if [ $# -gt 0 ]; then
+    args=("$@")
+else
+    args=("-rpcallowip=::/0")
+fi
+
+exec nohup bitcoind -datadir=$HOME/.bitcoin1 "${args[@]}" & > bitcoind1.out \
+    && bitcoind -datadir=$HOME/.bitcoin2 "${args[@]}" & > bitcoind2.out \
+    && bitcoind -datadir=$HOME/.bitcoin3 "${args[@]}" & > bitcoind3.out \
+    && bitcoind -datadir=$HOME/.bitcoin4 "${args[@]}"
