@@ -41,7 +41,7 @@ RUN set -x \
 
 ADD ./bin /usr/local/bin
 
-EXPOSE 8332 8333 8336 8338 8339
+EXPOSE 8332 8333 8334 8336 8338
 
 WORKDIR /bitcoin
 
