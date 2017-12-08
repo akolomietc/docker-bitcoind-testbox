@@ -17,6 +17,7 @@ regtest=1
 disablewallet=0
 server=1
 rpcport=8332
+txindex=${TXINDEX:-0}
 printtoconsole=${PRINTTOCONSOLE1:-1}
 rpcuser=${RPCUSER:-bitcoinrpc}
 rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
@@ -29,6 +30,7 @@ disablewallet=0
 server=1
 rpcport=8334
 printtoconsole=1
+txindex=${TXINDEX:-0}
 rpcuser=${RPCUSER:-bitcoinrpc}
 rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
 addnode=127.0.0.1:18444
@@ -41,6 +43,7 @@ disablewallet=0
 server=1
 rpcport=8336
 printtoconsole=1
+txindex=${TXINDEX:-0}
 rpcuser=${RPCUSER:-bitcoinrpc}
 rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
 addnode=127.0.0.1:18444
@@ -53,6 +56,7 @@ disablewallet=0
 server=1
 rpcport=8338
 printtoconsole=1
+txindex=${TXINDEX:-0}
 rpcuser=${RPCUSER:-bitcoinrpc}
 rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
 addnode=127.0.0.1:18444
