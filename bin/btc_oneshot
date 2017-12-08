@@ -11,7 +11,12 @@ else
     args=("-rpcallowip=::/0")
 fi
 
+if [$NODE == 'multi']; then
 exec nohup bitcoind -datadir=$HOME/.bitcoin1 "${args[@]}" & > bitcoind1.out \
     && bitcoind -datadir=$HOME/.bitcoin2 "${args[@]}" & > bitcoind2.out \
     && bitcoind -datadir=$HOME/.bitcoin3 "${args[@]}" & > bitcoind3.out \
     && bitcoind -datadir=$HOME/.bitcoin4 "${args[@]}"
+else
+exec nohup bitcoind -datadir=$HOME/.bitcoin1 "${args[@]}" & > bitcoind1.out \
+    && bitcoind -datadir=$HOME/.bitcoin2 "${args[@]}"
+fi
