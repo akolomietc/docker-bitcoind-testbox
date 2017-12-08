@@ -16,6 +16,7 @@ if [ ! -e "$HOME/.bitcoin1/bitcoin.conf" ]; then
 regtest=1    
 disablewallet=0
 server=1
+maxmempool=2000
 rpcport=8332
 txindex=${TXINDEX:-0}
 printtoconsole=${PRINTTOCONSOLE1:-1}
@@ -28,6 +29,7 @@ regtest=1
 listen=0
 disablewallet=0
 server=1
+maxmempool=2000
 rpcport=8334
 printtoconsole=1
 txindex=${TXINDEX:-0}
