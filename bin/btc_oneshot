@@ -17,6 +17,6 @@ exec nohup bitcoind -datadir=$HOME/.bitcoin1 "${args[@]}" & > bitcoind1.out \
     && bitcoind -datadir=$HOME/.bitcoin3 "${args[@]}" & > bitcoind3.out \
     && bitcoind -datadir=$HOME/.bitcoin4 "${args[@]}"
 else
-exec nohup bitcoind -datadir=$HOME/.bitcoin1 "${args[@]}" & > bitcoind1.out \
-    && bitcoind -datadir=$HOME/.bitcoin2 "${args[@]}"
+exec nohup bitcoind -datadir=$HOME/.bitcoin1 "${args[@]}" | sed  's/^/[prefix1] /' & > bitcoind1.out \
+    && bitcoind -datadir=$HOME/.bitcoin2 "${args[@]}" | sed  's/^/[prefix2] /'
 fi
