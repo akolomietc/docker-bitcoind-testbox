@@ -38,6 +38,7 @@ txindex=${TXINDEX:-0}
 rpcuser=${RPCUSER:-bitcoinrpc}
 rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
 addnode=127.0.0.1:18444
+bind=127.0.0.1:18444
 checkmempool=1
 debug=1
 EOF
@@ -70,10 +71,10 @@ EOF
 
 fi
 
-mkdir -p $HOME/.bitcoin2/regtest
-mkdir -p $HOME/.bitcoin3/regtest
+# mkdir -p $HOME/.bitcoin2/regtest
+# mkdir -p $HOME/.bitcoin3/regtest
 
-cp -rf $HOME/wallet.dat $HOME/.bitcoin2/regtest
-cp -rf $HOME/wallet.dat $HOME/.bitcoin3/regtest
+# cp -rf $HOME/wallet.dat $HOME/.bitcoin2/regtest
+# cp -rf $HOME/wallet.dat $HOME/.bitcoin3/regtest
 
 echo "Initialization completed successfully"
