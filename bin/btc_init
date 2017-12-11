@@ -18,7 +18,8 @@ disablewallet=0
 server=1
 maxmempool=2000
 rpcport=8332
-txindex=${TXINDEX:-0}
+onlynet=ipv4
+txindex=1
 printtoconsole=${PRINTTOCONSOLE1:-1}
 rpcuser=${RPCUSER:-bitcoinrpc}
 rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
@@ -28,28 +29,29 @@ EOF
 
     cat <<EOF > $HOME/.bitcoin2/bitcoin.conf
 regtest=1
-listen=0
 disablewallet=0
 server=1
+listen=0
 maxmempool=2000
 rpcport=8334
 printtoconsole=1
-txindex=${TXINDEX:-0}
+onlynet=ipv4
+txindex=1
 rpcuser=${RPCUSER:-bitcoinrpc}
 rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
-addnode=127.0.0.1:18444
+connect=127.0.0.1:18444
 checkmempool=1
 debug=1
 EOF
 
     cat <<EOF > $HOME/.bitcoin3/bitcoin.conf
 regtest=1
-listen=0
+listen=1
 disablewallet=0
 server=1
 rpcport=8336
 printtoconsole=1
-txindex=${TXINDEX:-0}
+txindex=1
 rpcuser=${RPCUSER:-bitcoinrpc}
 rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
 addnode=127.0.0.1:18444
@@ -57,12 +59,11 @@ EOF
 
     cat <<EOF > $HOME/.bitcoin4/bitcoin.conf
 regtest=1
-listen=0
 disablewallet=0
 server=1
 rpcport=8338
 printtoconsole=1
-txindex=${TXINDEX:-0}
+txindex=1
 rpcuser=${RPCUSER:-bitcoinrpc}
 rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
 addnode=127.0.0.1:18444
