@@ -38,7 +38,6 @@ txindex=${TXINDEX:-0}
 rpcuser=${RPCUSER:-bitcoinrpc}
 rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
 addnode=127.0.0.1:18444
-bind=127.0.0.1:18444
 checkmempool=1
 debug=1
 EOF
