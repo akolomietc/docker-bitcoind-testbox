@@ -71,10 +71,10 @@ EOF
 
 fi
 
-# mkdir -p $HOME/.bitcoin2/regtest
+mkdir -p $HOME/.bitcoin2/regtest
 # mkdir -p $HOME/.bitcoin3/regtest
 
-# cp -rf $HOME/wallet.dat $HOME/.bitcoin2/regtest
+cp -rf $HOME/wallet.dat $HOME/.bitcoin2/regtest
 # cp -rf $HOME/wallet.dat $HOME/.bitcoin3/regtest
 
 echo "Initialization completed successfully"
